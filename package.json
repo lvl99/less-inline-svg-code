@@ -1,0 +1,17 @@
+{
+  "name": "less-inline-svg-code",
+  "version": "1.0.0",
+  "description": "Inline SVG images within CSS using for LESS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Scheurich <matt@lvl99.com> (http://lvl99.com/)",
+  "license": "WTFPL",
+  "devDependencies": {
+    "browser-sync": "2.11.1",
+    "gulp": "3.9.1",
+    "gulp-less": "3.0.5",
+    "gulp-util": "3.0.7"
+  }
+}

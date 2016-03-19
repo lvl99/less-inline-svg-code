@@ -1,0 +1,8 @@
+// Inline SVG code images in LESS CSS
+// @author Matt Scheurich <matt@lvl99.com> (http://lvl99.com)
+// Github: https://github.com/lvl99/less-inline-svg-code
+.inline-svg-code( @code ) {
+  @-svg-code: escape(~'<?xml version="1.0" ?>@{code}');
+  @-inline-svg-code: ~'data:image/svg+xml,@{-svg-code}';
+  @-inline-svg-url: ~"url('@{-inline-svg-code}')";
+}

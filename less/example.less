@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@import 'inline-svg-code';
+
+body {
+  font-family: 'Karla', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+// Basic Example
+// ---------------
+.example-1 {
+  display: block;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+
+  // Encode the SVG code into a string which can be used within this class declaration
+  .inline-svg-code(~'<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" preserveAspectRatio="xMin yMin"><g><rect fill="white" stroke="#000" stroke-width="1.5" x="110.75" y="299.25" width="180" height="180" id="rectangle"/><circle fill="white" stroke="#000" stroke-width="1.5" cx="300" cy="300" r="107.5" id="circle"/><path fill="white" stroke="#000" stroke-width="1.5" d="m430.75,120.75l-123.5,176l242,0l-118.5,-176z" id="triangle"/></g></svg>');
+
+  // Apply the background image using the `@-inline-svg-url` variable
+  background-image: @-inline-svg-url;
+}
+
+// Dynamic Example
+// ---------------
+// I've created a dynamic mixin to generate consistent SVG image code that can support color changes
+.example-inline-svg( @color-triangle: white, @color-square: white, @color-circle: white ) {
+  @example-svg-code: ~'<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" preserveAspectRatio="xMin yMin"><g><rect fill="@{color-square}" stroke="#000" stroke-width="1.5" x="110.75" y="299.25" width="180" height="180" id="rectangle"/><circle fill="@{color-circle}" stroke="#000" stroke-width="1.5" cx="300" cy="300" r="107.5" id="circle"/><path fill="@{color-triangle}" stroke="#000" stroke-width="1.5" d="m430.75,120.75l-123.5,176l242,0l-118.5,-176z" id="triangle"/></g></svg>';
+
+  // Here I apply the inline SVG code mixin to retrieve the encoded URL to set as the background-image
+  .inline-svg-code(@example-svg-code);
+  background-image: @-inline-svg-url;
+}
+
+.example-2 {
+  display: block;
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+
+  // Here I set the initial state, which will be based on the default color values
+  .example-inline-svg();
+}
+
+// Let's do some further customisation based on responsive widths...
+@media screen and (min-width: 500px) and (max-width: 799px) {
+  .example-2 {
+    // Let's go RGB, bebe
+    .example-inline-svg(red, green, blue);
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1199px) {
+  .example-2 {
+    // How 'bout some red, white and blue (Viva la France!)
+    .example-inline-svg(red, white, blue);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .example-2 {
+    // Greyscale for fun
+    .example-inline-svg(black, grey, white);
+  }
+}
