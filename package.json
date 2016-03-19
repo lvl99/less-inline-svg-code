@@ -1,7 +1,7 @@
 {
   "name": "less-inline-svg-code",
   "version": "1.0.0",
-  "description": "Inline SVG images within CSS using for LESS",
+  "description": "LESS mixin for inlining SVG code within CSS",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,11 @@
     "gulp": "3.9.1",
     "gulp-less": "3.0.5",
     "gulp-util": "3.0.7"
+  },
+  "dependencies": {
+    "browser-sync": "2.11.1",
+    "gulp-util": "3.0.7",
+    "gulp": "3.9.1",
+    "gulp-less": "3.0.5"
   }
 }
