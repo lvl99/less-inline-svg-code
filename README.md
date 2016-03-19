@@ -2,7 +2,7 @@
 
 This mixin allows you to embed SVG code within CSS files using LESS. The techniques within this mixin relate to the insights found at CSS Tricks' "[Probably Don't Base64 SVG](https://css-tricks.com/probably-dont-base64-svg/)".
 
-You can read more about my development of this mixin on my blog: "[Inline SVG code within CSS using LESS](http://blog.lvl99.com/)"
+You can read more about my development of this mixin on my blog: "[Inline SVG code within CSS using LESS](http://blog.lvl99.com/post/141327383881/inline-svg-code-within-css-using-less)"
 
 ```less
 // Inline SVG code images in LESS CSS
